@@ -8,6 +8,11 @@ export class Meal {
 
   }
   public addFood(food) {
-        this.foods.push(food);
-    }
+    this.foods.push(food);
+    var calories = 0;
+    this.foods.forEach(function(each){
+      calories += parseInt(each.calories)
+    })
+    this.totalCalories = calories
+  }
 }

@@ -17,7 +17,9 @@ import { Meal } from './meal.model';
 export class AppComponent {
   showNewMeal: boolean = false;
   selectedMeal = null;
-  meals: Meal[] = [new Meal('this is a date', 'Breakfast', 'this is details')];
+  meals: Meal[] = [new Meal('2016-1-20', 'Breakfast', 'this is details'),
+                  new Meal('2016-1-20', 'Lunch', 'this is details'),
+                  new Meal('2016-1-20', 'Dinner', 'this is details')];
 
 
 
