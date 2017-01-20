@@ -30,6 +30,6 @@ export class AddFoodComponent{
       calories: calories
     }
     this.selectedMeal.addFood(newFood)
-    console.log(this.selectedMeal)
+    console.log(this.selectedMeal)  
   }
 }

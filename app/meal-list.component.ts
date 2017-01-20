@@ -5,11 +5,16 @@ import { Meal } from './meal.model';
   selector: 'meal-list',
   template: `
   <div>
-    <li *ngFor = "let currentMeal of meals">date: {{currentMeal.date}}
+    <li *ngFor = "let currentMeal of meals">{{currentMeal.mealTime}} on  {{currentMeal.date}}
+
+      <p>{{currentMeal.details}}</p>
+      <p>{{currentMeal.totalCalories}}</p>
+      <p>foods array:{{currentMeal.foods}}</p>
+      <meal-details [currentMeal]="currentMeal"></meal-details>
+
       <button class="btn btn-primary" (click)="addButtonHasBeenClicked(currentMeal)">Add Foods</button>
     <li>
   </div>
-
   `
 })
 
