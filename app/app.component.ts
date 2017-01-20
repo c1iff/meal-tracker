@@ -7,7 +7,7 @@ import { Meal } from './meal.model';
   <div class="container">
     <h1>Meal Tracker</h1>
     <button class="btn btn-primary" (click)="addMealHasBeenClicked()">Add a New Meal</button>
-    <new-meal [showNewMeal]='showNewMeal'></new-meal>
+    <new-meal [showNewMeal]='showNewMeal' (emittNewMeal)="addNewMeal($event)"></new-meal>
     <meal-list [meals]='meals' (clickSenderAddMeal)=addMealShow($event)></meal-list>
     <add-food [selectedMeal]="selectedMeal"></add-food>
   <div>
@@ -27,6 +27,11 @@ export class AppComponent {
 
   addMealShow(currentMeal) {
     this.selectedMeal = currentMeal;
+  }
+
+  addNewMeal(newMeal) {
+    console.log(newMeal)
+    this.meals.push(newMeal);
   }
 
 }

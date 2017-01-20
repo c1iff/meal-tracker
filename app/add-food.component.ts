@@ -15,11 +15,20 @@ import { Meal } from './meal.model';
       <label>Enter the Calories</label><br>
       <input #foodCalories class="form-control">
     </div>
-    <button class="btn btn-primary" (click)="submitForm(mealDate.value, mealTime.value, mealDetails.value)">Create Meal</button>
+    <button class="btn btn-primary" (click)="addFood(foodType.value, foodCalories.value)">Add Food</button>
   </div>
   `
 })
 
 export class AddFoodComponent{
   @Input() selectedMeal;
+  @Output() emittNewFood = new EventEmitter();
+
+  addFood(food, calories) {
+    var newFood = {
+      food: food,
+      calories: calories
+    }
+    console.log(newFood)
+  }
 }

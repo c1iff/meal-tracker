@@ -7,10 +7,10 @@ import { Meal } from './meal.model';
   <div>
     <div *ngIf="showNewMeal">
       <hr>
-      <h3>Add a New Meal</h3>
+      <h3>Add a New Meal:</h3>
       <div class="form-group">
         <label>Enter Date:</label>
-        <input #mealDate class="form-control">
+        <input #mealDate class='form-control' type='date'>
       </div>
       <div class="form-group">
         <label>Enter Meal Time</label><br>
@@ -23,7 +23,6 @@ import { Meal } from './meal.model';
       <button class="btn btn-primary" (click)="submitForm(mealDate.value, mealTime.value, mealDetails.value)">Create Meal</button>
     </div>
   </div>
-
   `
 })
 
@@ -33,6 +32,7 @@ export class NewMealComponent{
 
   submitForm(mealDate: string, mealTime: string, mealDetails: string) {
     var newMealToAdd =  new Meal(mealDate, mealTime, mealDetails);
+
     this.emittNewMeal.emit(newMealToAdd);
   }
 
