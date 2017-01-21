@@ -4,7 +4,7 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'add-food',
   template: `
-  <div *ngIf="selectedMeal">
+  <div class="col-md-3" id="add-food" *ngIf="selectedMeal">
     <h3>Add add a food</h3>
     <p>{{selectedMeal.date}}</p>
     <div class="form-group">
@@ -30,6 +30,6 @@ export class AddFoodComponent{
       calories: calories
     }
     this.selectedMeal.addFood(newFood)
-    console.log(this.selectedMeal)  
+    console.log(this.selectedMeal)
   }
 }

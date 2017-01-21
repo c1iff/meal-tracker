@@ -4,18 +4,20 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'new-meal',
   template: `
-  <div>
-    <div *ngIf="showNewMeal">
-      <hr>
+  <div *ngIf="showNewMeal">
+    <div class="col-md-3">
       <h3>Add a New Meal:</h3>
       <div class="form-group">
         <label>Enter Date:</label>
         <input #mealDate class='form-control' type='date'>
       </div>
-      <div class="form-group">
-        <label>Enter Meal Time</label><br>
-        <input #mealTime class="form-control">
-      </div>
+      <label>Enter Meal Time</label>
+      <select #mealTime class="form-control">
+        <option value="Breakfast" selected="selected">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Snack">Snack</option>
+      </select><br>
       <div class="form-group">
         <label>Enter Meal Details</label><br>
         <input #mealDetails class="form-control">
