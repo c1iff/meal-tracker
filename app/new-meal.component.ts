@@ -30,12 +30,12 @@ import { Meal } from './meal.model';
 
 export class NewMealComponent{
   @Input() showNewMeal;
-  @Output() emittNewFood = new EventEmitter()
+  @Output() emittNewMeal = new EventEmitter()
 
   submitForm(mealDate: string, mealTime: string, mealDetails: string) {
     var newMealToAdd =  new Meal(mealDate, mealTime, mealDetails);
 
-    this.emittNewFood.emit(newMealToAdd);
+    this.emittNewMeal.emit(newMealToAdd);
   }
 
 }
