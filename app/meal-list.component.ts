@@ -7,14 +7,17 @@ import { Meal } from './meal.model';
   <h3></h3>
     <div *ngFor = "let currentMeal of meals">
     <div class="col-md-3">
-      <hr>
-      {{currentMeal.mealTime}} on  {{currentMeal.date}}
-      <p>{{currentMeal.details}}</p>
-      <p>{{currentMeal.totalCalories}}</p>
-      <meal-details [currentMeal]="currentMeal"></meal-details>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>{{currentMeal.mealTime}} on  {{currentMeal.date}}</h4>
+        <p>{{currentMeal.details}}</p>
+        <h5>Total Calories: {{currentMeal.totalCalories}}</h5>
+        <meal-details [currentMeal]="currentMeal"></meal-details>
+      </div>
+    </div>
 
-      <button class="btn btn-primary" (click)="addButtonHasBeenClicked(currentMeal)">Add Foods</button>
-      <hr>
+      <button class="btn btn-info" (click)="addButtonHasBeenClicked(currentMeal)">Add Foods</button>
+
     </div>
   </div>
   `

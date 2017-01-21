@@ -7,12 +7,12 @@ import { Meal } from './meal.model';
   <div class="container">
     <div class="row">
       <meal-list [meals]='meals' (clickSenderAddMeal)=addMealShow($event)></meal-list>
-      <add-food [selectedMeal]="selectedMeal"></add-food>
+      <add-food [selectedMeal]="selectedMeal" (emittNewFood)=foodAdded()></add-food>
     </div>
     <div class="row">
     <hr>
-      <new-meal [showNewMeal]='showNewMeal' (emittNewMeal)="addNewMeal($event)"></new-meal>
       <button class="btn btn-primary" (click)="addMealHasBeenClicked()">Add a New Meal</button>
+      <new-meal [showNewMeal]='showNewMeal' (emittNewMeal)="addNewMeal($event)"></new-meal>
     </div>
   </div>
   `
@@ -31,6 +31,10 @@ export class AppComponent {
 
   addMealShow(currentMeal) {
     this.selectedMeal = currentMeal;
+  }
+
+  foodAdded() {
+    this.selectedMeal = null;
   }
 
   addNewMeal(newMeal) {

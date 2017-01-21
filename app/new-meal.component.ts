@@ -22,7 +22,7 @@ import { Meal } from './meal.model';
         <label>Enter Meal Details</label><br>
         <input #mealDetails class="form-control">
       </div>
-      <button class="btn btn-primary" (click)="submitForm(mealDate.value, mealTime.value, mealDetails.value)">Create Meal</button>
+      <button class="btn btn-primary btn-inverse" (click)="submitForm(mealDate.value, mealTime.value, mealDetails.value)">Create Meal</button>
     </div>
   </div>
   `
@@ -30,12 +30,12 @@ import { Meal } from './meal.model';
 
 export class NewMealComponent{
   @Input() showNewMeal;
-  @Output() emittNewMeal = new EventEmitter()
+  @Output() emittNewFood = new EventEmitter()
 
   submitForm(mealDate: string, mealTime: string, mealDetails: string) {
     var newMealToAdd =  new Meal(mealDate, mealTime, mealDetails);
 
-    this.emittNewMeal.emit(newMealToAdd);
+    this.emittNewFood.emit(newMealToAdd);
   }
 
 }
