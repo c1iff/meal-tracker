@@ -17,6 +17,7 @@ import { Meal } from './meal.model';
     </div>
 
       <button class="btn btn-info" (click)="addButtonHasBeenClicked(currentMeal)">Add Foods</button>
+      <button class="btn btn-danger" (click)="editButtonHasBeenClicked(currentMeal)">Edit Meal</button>
 
     </div>
   </div>
@@ -26,8 +27,13 @@ import { Meal } from './meal.model';
 export class MealListComponent{
   @Input() meals;
   @Output() clickSenderAddMeal = new EventEmitter();
+  @Output() clickSenderEdit = new EventEmitter();
 
   addButtonHasBeenClicked(currentMeal) {
     this.clickSenderAddMeal.emit(currentMeal);
+  }
+
+  editButtonHasBeenClicked(currentMeal) {
+    this.clickSenderEdit.emit(currentMeal);
   }
 }
