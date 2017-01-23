@@ -4,8 +4,18 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-list',
   template: `
-  <h3></h3>
-    <div *ngFor = "let currentMeal of meals">
+  <h3>Filter by Calories</h3>
+  <div class="row">
+    <div class="col-md-3">
+      <select class="form-control" (change)="onChange($event.target.value)">
+        <option value="0" selected="selected">All Meals</option>
+        <option value="500">Meals with more than 500 calories</option>
+        <option value="1000">Meals with more than 1000 calories</option>
+      </select>
+      </div>
+      </div>
+    <br>
+    <div *ngFor = "let currentMeal of meals | calories:filterByCalories">
     <div class="col-md-3">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -29,11 +39,17 @@ export class MealListComponent{
   @Output() clickSenderAddMeal = new EventEmitter();
   @Output() clickSenderEdit = new EventEmitter();
 
+  filterByCalories: string = "0";
+
   addButtonHasBeenClicked(currentMeal) {
     this.clickSenderAddMeal.emit(currentMeal);
   }
 
   editButtonHasBeenClicked(currentMeal) {
     this.clickSenderEdit.emit(currentMeal);
+  }
+
+  onChange(optionFromMenu) {
+  this.filterByCalories = optionFromMenu;
   }
 }
