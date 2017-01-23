@@ -22,6 +22,18 @@ import { Meal } from './meal.model';
         <label>Enter Meal Details</label><br>
         <input [(ngModel)]="mealToEdit.details" class="form-control">
       </div>
+      <div *ngFor = "let currentFood of mealToEdit.foods">
+        <hr>
+        <h3>{{currentFood.food}}</h3>
+        <div class="form-group">
+          <label>Food Name</label><br>
+          <input [(ngModel)]="currentFood.food" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Calories</label><br>
+          <input [(ngModel)]="currentFood.calories" class="form-control">
+        </div>
+      </div>
       <button class="btn btn-primary btn-inverse" (click)="finsihButtonClicked()">Finish</button>
     </div>
   </div>
