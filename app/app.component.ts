@@ -6,8 +6,9 @@ import { Meal } from './meal.model';
   template: `
   <div class="container">
     <div class="row">
-      <meal-list [meals]='meals' (clickSenderAddMeal)=addMealShow($event)></meal-list>
+      <meal-list [meals]='meals' (clickSenderAddMeal)=addMealShow($event) (clickSenderEdit)=editMealShow($event)></meal-list>
       <add-food [selectedMeal]="selectedMeal" (emittNewFood)=foodAdded()></add-food>
+      <edit-meal [mealToEdit]="mealToEdit" (emittEdit)=mealEdited()></edit-meal>
     </div>
     <div class="row">
     <hr>
@@ -21,6 +22,7 @@ import { Meal } from './meal.model';
 export class AppComponent {
   showNewMeal: boolean = false;
   selectedMeal = null;
+  mealToEdit = null;
   meals: Meal[] = [new Meal('2016-1-20', 'Breakfast', 'this is details')];
 
 
@@ -35,6 +37,14 @@ export class AppComponent {
 
   foodAdded() {
     this.selectedMeal = null;
+  }
+
+  editMealShow(mealToEdit) {
+    this.mealToEdit = mealToEdit;
+  }
+
+  mealEdited() {
+    this.mealToEdit = null;
   }
 
   addNewMeal(newMeal) {
